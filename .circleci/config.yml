@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: gcc:latest
+
+    steps:
+      - checkout
+      - run:
+          name: Print the Current Time
+          command: date
+      - run: mkdir -p build
+      - run: g++ -o build/main main.cpp -std=c++17
+      - run: ./build/main
